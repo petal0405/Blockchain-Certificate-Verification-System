@@ -1,0 +1,1246 @@
+/* =====================================================
+   BLOCKCHAIN CERTIFICATE VERIFICATION SYSTEM
+   Clean Editorial / Human-Designed UI
+===================================================== */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  min-height: 100%;
+  width: 100%;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f4f3ed;
+  color: #111111;
+}
+
+button,
+input {
+  font-family: inherit;
+}
+
+/* =====================================================
+   LOGIN PAGE
+===================================================== */
+
+.app {
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 40px 20px;
+
+  background: #e9e8e1;
+}
+
+/* Simple decorative blocks */
+
+.app::before {
+  content: "";
+
+  position: absolute;
+
+  width: 180px;
+  height: 180px;
+
+  top: -60px;
+  left: -40px;
+
+  background: #d7ff32;
+
+  transform: rotate(12deg);
+
+  pointer-events: none;
+}
+
+.app::after {
+  content: "";
+
+  position: absolute;
+
+  width: 100px;
+  height: 100px;
+
+  right: 7%;
+  bottom: 8%;
+
+  border: 2px solid #111111;
+
+  transform: rotate(45deg);
+
+  pointer-events: none;
+}
+
+/* =====================================================
+   LOGIN CARD
+===================================================== */
+
+.login-container {
+  position: relative;
+  z-index: 1;
+
+  width: 100%;
+  max-width: 520px;
+
+  padding: 44px;
+
+  background: #ffffff;
+
+  border: 1px solid #111111;
+
+  border-radius: 0;
+
+  box-shadow: 10px 10px 0 #111111;
+}
+
+/* =====================================================
+   LOGO
+===================================================== */
+
+.logo {
+  width: 64px;
+  height: 64px;
+
+  margin: 0 auto 24px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #d7ff32;
+
+  border: 2px solid #111111;
+
+  color: #111111;
+
+  font-size: 28px;
+
+  box-shadow: none;
+}
+
+.login-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.login-header h1 {
+  margin: 0;
+
+  color: #111111;
+
+  font-size: 34px;
+
+  font-weight: 800;
+
+  line-height: 1.05;
+
+  letter-spacing: -1.5px;
+}
+
+.login-header p {
+  margin: 14px auto 0;
+
+  max-width: 360px;
+
+  color: #666666;
+
+  font-size: 14px;
+
+  line-height: 1.6;
+}
+
+/* =====================================================
+   ROLE SELECTOR
+===================================================== */
+
+.role-selector {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 8px;
+
+  margin-bottom: 30px;
+}
+
+.role {
+  min-height: 82px;
+
+  border: 1px solid #c9c9c2;
+
+  border-radius: 0;
+
+  background: #f7f7f2;
+
+  color: #555555;
+
+  cursor: pointer;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  align-items: center;
+
+  gap: 7px;
+
+  font-size: 13px;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.role:hover {
+  background: #eeeeE7;
+
+  border-color: #111111;
+
+  transform: none;
+}
+
+.role.active {
+  color: #111111;
+
+  border-color: #111111;
+
+  background: #d7ff32;
+
+  box-shadow: none;
+}
+
+.role span {
+  font-size: 13px;
+
+  font-weight: 700;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.4px;
+}
+
+/* =====================================================
+   LOGIN FORM
+===================================================== */
+
+.login-form {
+  display: flex;
+
+  flex-direction: column;
+}
+
+.login-form h2 {
+  margin: 0 0 22px;
+
+  color: #111111;
+
+  font-size: 22px;
+
+  font-weight: 800;
+
+  letter-spacing: -0.5px;
+}
+
+.login-form label {
+  margin-bottom: 7px;
+
+  color: #222222;
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.5px;
+}
+
+.login-form input {
+  width: 100%;
+
+  padding: 13px 14px;
+
+  margin-bottom: 18px;
+
+  border-radius: 0;
+
+  border: 1px solid #bdbdb6;
+
+  outline: none;
+
+  background: #fafaf6;
+
+  color: #111111;
+
+  font-size: 14px;
+
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease;
+}
+
+.login-form input::placeholder {
+  color: #999999;
+}
+
+.login-form input:focus {
+  border-color: #111111;
+
+  background: #ffffff;
+
+  box-shadow: none;
+}
+
+.login-button {
+  margin-top: 5px;
+
+  padding: 14px 18px;
+
+  border: 2px solid #111111;
+
+  border-radius: 0;
+
+  background: #111111;
+
+  color: #ffffff;
+
+  font-size: 14px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.4px;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.login-button:hover {
+  background: #d7ff32;
+
+  color: #111111;
+
+  box-shadow: none;
+
+  transform: none;
+}
+
+.login-footer {
+  text-align: center;
+
+  margin-top: 26px;
+
+  color: #777777;
+
+  font-size: 12px;
+}
+
+.login-footer p {
+  margin: 0 0 6px;
+}
+
+.login-footer span {
+  color: #555555;
+}
+
+/* =====================================================
+   DASHBOARD
+===================================================== */
+
+.dashboard {
+  min-height: 100vh;
+
+  color: #111111;
+
+  background: #f4f3ed;
+}
+
+/* =====================================================
+   DASHBOARD HEADER
+===================================================== */
+
+.dashboard-header {
+  min-height: 82px;
+
+  padding: 18px 55px;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  background: #ffffff;
+
+  border-bottom: 1px solid #111111;
+
+  position: sticky;
+
+  top: 0;
+
+  z-index: 10;
+}
+
+.dashboard-header h1 {
+  margin: 0;
+
+  color: #111111;
+
+  font-size: 23px;
+
+  font-weight: 800;
+
+  letter-spacing: -0.8px;
+
+  text-transform: uppercase;
+}
+
+.dashboard-header p {
+  margin: 5px 0 0;
+
+  color: #777777;
+
+  font-size: 12px;
+}
+
+.logout-button {
+  padding: 9px 17px;
+
+  border-radius: 0;
+
+  border: 1px solid #111111;
+
+  background: #ffffff;
+
+  color: #111111;
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  text-transform: uppercase;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.logout-button:hover {
+  background: #111111;
+
+  color: #ffffff;
+}
+
+/* =====================================================
+   MAIN CONTENT
+===================================================== */
+
+.dashboard-content {
+  width: 100%;
+
+  max-width: 1200px;
+
+  margin: auto;
+
+  padding: 55px 30px 80px;
+}
+
+/* =====================================================
+   WELCOME CARD
+===================================================== */
+
+.welcome-card {
+  position: relative;
+
+  overflow: hidden;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 22px;
+
+  padding: 34px;
+
+  margin-bottom: 55px;
+
+  border-radius: 0;
+
+  background: #111111;
+
+  border: none;
+
+  box-shadow: none;
+
+  color: #ffffff;
+}
+
+.welcome-card::after {
+  content: "";
+
+  position: absolute;
+
+  width: 100px;
+  height: 100px;
+
+  right: 40px;
+  top: -25px;
+
+  background: #d7ff32;
+
+  transform: rotate(45deg);
+}
+
+.student-avatar {
+  position: relative;
+
+  z-index: 1;
+
+  width: 74px;
+  height: 74px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  overflow: hidden;
+
+  background: #d7ff32;
+
+  border: 2px solid #ffffff;
+
+  color: #111111;
+
+  font-size: 28px;
+}
+
+.student-photo {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  display: block;
+}
+
+.welcome-card h2 {
+  position: relative;
+
+  z-index: 1;
+
+  margin: 0 0 7px;
+
+  color: #ffffff;
+
+  font-size: 28px;
+
+  font-weight: 800;
+
+  letter-spacing: -1px;
+}
+
+.welcome-card p {
+  position: relative;
+
+  z-index: 1;
+
+  margin: 0;
+
+  color: #c9c9c9;
+
+  font-size: 14px;
+}
+
+/* =====================================================
+   SECTION TITLE
+===================================================== */
+
+.section-title {
+  margin: 0 0 20px;
+
+  color: #111111;
+
+  font-size: 30px;
+
+  font-weight: 800;
+
+  letter-spacing: -1.2px;
+}
+
+/* =====================================================
+   CERTIFICATE CARD
+===================================================== */
+
+.certificate-card {
+  position: relative;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  gap: 30px;
+
+  padding: 30px;
+
+  margin-bottom: 30px;
+
+  border-radius: 0;
+
+  background: #ffffff;
+
+  border: 1px solid #111111;
+
+  box-shadow: 6px 6px 0 #d7ff32;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.certificate-card:hover {
+  transform: translate(-2px, -2px);
+
+  box-shadow: 9px 9px 0 #d7ff32;
+
+  border-color: #111111;
+}
+
+.certificate-info {
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 20px;
+}
+
+.certificate-icon {
+  width: 58px;
+  height: 58px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 0;
+
+  background: #d7ff32;
+
+  border: 1px solid #111111;
+
+  color: #111111;
+
+  font-size: 25px;
+}
+
+.certificate-info h2 {
+  margin: 0 0 14px;
+
+  color: #111111;
+
+  font-size: 20px;
+
+  font-weight: 800;
+}
+
+.certificate-info p {
+  margin: 7px 0;
+
+  color: #666666;
+
+  font-size: 14px;
+}
+
+.certificate-info strong {
+  color: #111111;
+}
+
+/* =====================================================
+   VERIFICATION BADGE
+===================================================== */
+
+.status-badge {
+  display: inline-flex;
+
+  align-items: center;
+
+  margin-top: 12px;
+
+  padding: 6px 11px;
+
+  border-radius: 0;
+
+  background: #d7ff32;
+
+  border: 1px solid #111111;
+
+  color: #111111;
+
+  font-size: 11px;
+
+  font-weight: 800;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.4px;
+}
+
+/* =====================================================
+   CERTIFICATE BUTTONS
+===================================================== */
+
+.certificate-actions {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 9px;
+
+  min-width: 175px;
+}
+
+.action-button {
+  border: 1px solid #111111;
+
+  border-radius: 0;
+
+  padding: 12px 16px;
+
+  background: #111111;
+
+  color: #ffffff;
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.3px;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.action-button:hover {
+  background: #d7ff32;
+
+  color: #111111;
+
+  transform: none;
+
+  box-shadow: none;
+}
+
+/* =====================================================
+   QR + BLOCKCHAIN SECTION
+===================================================== */
+
+.verification-section {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 25px;
+
+  align-items: start;
+}
+
+.qr-card,
+.blockchain-card {
+  position: relative;
+
+  overflow: hidden;
+
+  padding: 30px;
+
+  border-radius: 0;
+
+  background: #ffffff;
+
+  border: 1px solid #111111;
+
+  box-shadow: none;
+}
+
+.qr-card::before,
+.blockchain-card::before {
+  content: "";
+
+  position: absolute;
+
+  width: 45px;
+  height: 45px;
+
+  pointer-events: none;
+}
+
+.qr-card::before {
+  top: 0;
+  right: 0;
+
+  background: #d7ff32;
+}
+
+.blockchain-card::before {
+  bottom: 0;
+  right: 0;
+
+  background: #111111;
+}
+
+.qr-card h2,
+.blockchain-card h2 {
+  position: relative;
+
+  margin: 0 0 12px;
+
+  color: #111111;
+
+  font-size: 20px;
+
+  font-weight: 800;
+}
+
+.qr-card > p {
+  position: relative;
+
+  color: #666666;
+
+  font-size: 14px;
+
+  line-height: 1.6;
+}
+
+/* =====================================================
+   QR CODE
+===================================================== */
+
+.qr-container {
+  position: relative;
+
+  width: fit-content;
+
+  margin: 25px auto;
+
+  padding: 15px;
+
+  background: #ffffff;
+
+  border-radius: 0;
+
+  border: 1px solid #111111;
+
+  box-shadow: none;
+}
+
+.qr-id {
+  text-align: center;
+
+  color: #111111 !important;
+
+  font-weight: 700;
+
+  font-size: 12px;
+}
+
+/* =====================================================
+   BLOCKCHAIN STATUS
+===================================================== */
+
+.blockchain-status {
+  display: flex;
+
+  align-items: center;
+
+  gap: 9px;
+
+  margin: 20px 0;
+
+  padding: 12px 14px;
+
+  border-radius: 0;
+
+  background: #f1f7dc;
+
+  border: 1px solid #111111;
+
+  color: #111111;
+
+  font-size: 13px;
+
+  font-weight: 600;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+
+  border-radius: 50%;
+
+  background: #111111;
+
+  box-shadow: none;
+}
+
+/* =====================================================
+   HASH BOX
+===================================================== */
+
+.hash-box {
+  padding: 15px;
+
+  margin-bottom: 20px;
+
+  border-radius: 0;
+
+  background: #f5f5f0;
+
+  border: 1px solid #d0d0c8;
+}
+
+.hash-box label {
+  display: block;
+
+  margin-bottom: 9px;
+
+  color: #777777;
+
+  font-size: 10px;
+
+  font-weight: 700;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.8px;
+}
+
+.hash-box p {
+  margin: 0;
+
+  color: #333333;
+
+  font-family: monospace;
+
+  font-size: 11px;
+
+  line-height: 1.6;
+
+  word-break: break-all;
+}
+
+/* =====================================================
+   INFORMATION ROW
+===================================================== */
+
+.info-row {
+  display: flex;
+
+  justify-content: space-between;
+
+  gap: 20px;
+
+  padding: 13px 0;
+
+  border-bottom: 1px solid #deded7;
+
+  font-size: 13px;
+}
+
+.info-row span {
+  color: #777777;
+}
+
+.info-row strong {
+  color: #111111;
+
+  text-align: right;
+}
+
+/* =====================================================
+   ADMIN FORM
+===================================================== */
+
+.admin-input {
+  display: block;
+
+  width: 100%;
+
+  padding: 13px 14px;
+
+  margin-top: 6px;
+
+  margin-bottom: 18px;
+
+  background: #fafaf6;
+
+  color: #111111;
+
+  border: 1px solid #c7c7bf;
+
+  border-radius: 0;
+
+  outline: none;
+
+  font-size: 14px;
+
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease;
+}
+
+.admin-input::placeholder {
+  color: #999999;
+}
+
+.admin-input:focus {
+  border-color: #111111;
+
+  background: #ffffff;
+
+  box-shadow: none;
+}
+
+/* Admin labels */
+
+.qr-card > label,
+.blockchain-card > label {
+  display: block;
+
+  margin-bottom: 6px;
+
+  color: #222222;
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.4px;
+}
+
+/* =====================================================
+   ADMIN FILE UPLOAD
+===================================================== */
+
+.verification-section {
+  align-items: start;
+}
+
+.verification-section .blockchain-card {
+  align-self: start;
+
+  height: fit-content;
+}
+
+.blockchain-card input[type="file"] {
+  display: block;
+
+  width: 100%;
+
+  margin-top: 6px;
+
+  margin-bottom: 20px;
+
+  padding: 9px;
+
+  border: 1px solid #c7c7bf;
+
+  border-radius: 0;
+
+  background: #fafaf6;
+
+  color: #555555;
+
+  font-size: 13px;
+}
+
+.blockchain-card input[type="file"]::file-selector-button {
+  margin-right: 12px;
+
+  padding: 8px 14px;
+
+  border: 1px solid #111111;
+
+  border-radius: 0;
+
+  background: #111111;
+
+  color: #ffffff;
+
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.blockchain-card input[type="file"]::file-selector-button:hover {
+  background: #d7ff32;
+
+  color: #111111;
+}
+
+.blockchain-card .file-selected {
+  margin-top: -12px;
+
+  color: #555555;
+}
+
+/* =====================================================
+   ADMIN STATUS / MESSAGES
+===================================================== */
+
+.admin-status {
+  margin-top: 18px;
+
+  padding: 13px 15px;
+
+  border-left: 4px solid #111111;
+
+  background: #f1f7dc;
+
+  color: #111111;
+
+  font-size: 13px;
+
+  line-height: 1.5;
+}
+
+/* =====================================================
+   GENERAL BUTTON RESET
+===================================================== */
+
+button {
+  outline: none;
+}
+
+button:focus-visible,
+input:focus-visible {
+  outline: 2px solid #111111;
+
+  outline-offset: 2px;
+}
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 850px) {
+
+  .dashboard-header {
+    padding: 18px 25px;
+  }
+
+  .verification-section {
+    grid-template-columns: 1fr;
+  }
+
+  .certificate-card {
+    flex-direction: column;
+
+    align-items: flex-start;
+  }
+
+  .certificate-actions {
+    width: 100%;
+
+    flex-direction: row;
+  }
+
+  .action-button {
+    flex: 1;
+  }
+}
+
+@media (max-width: 600px) {
+
+  .login-container {
+    padding: 30px 22px;
+
+    box-shadow: 6px 6px 0 #111111;
+  }
+
+  .login-header h1 {
+    font-size: 27px;
+  }
+
+  .role-selector {
+    gap: 5px;
+  }
+
+  .role {
+    min-height: 75px;
+  }
+
+  .dashboard-header {
+    padding: 18px;
+
+    align-items: flex-start;
+
+    gap: 15px;
+  }
+
+  .dashboard-header h1 {
+    font-size: 18px;
+  }
+
+  .dashboard-content {
+    padding: 30px 15px 50px;
+  }
+
+  .welcome-card {
+    padding: 24px;
+
+    align-items: flex-start;
+  }
+
+  .welcome-card h2 {
+    font-size: 22px;
+  }
+
+  .certificate-info {
+    flex-direction: column;
+  }
+
+  .certificate-actions {
+    flex-direction: column;
+  }
+
+  .section-title {
+    font-size: 25px;
+  }
+}
